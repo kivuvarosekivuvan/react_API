@@ -1,13 +1,19 @@
-import './App.css';
-import Login from './Login/login';
-import Products from './Products/product';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Login from './Login';
+import Products from './Products';
+import Product from './Product';
 
 function App() {
   return (
     <div>
-      <Login/>
-      <Products/>
-
+      <Router>
+        <Switch>
+          <Route path="/login" component={Login} />
+          <Route path="/products" component={Products} />
+          <Route path="/product/:id" component={Product} />
+        </Switch>
+      </Router>
     </div>
   );
 }
